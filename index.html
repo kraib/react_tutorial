@@ -9,6 +9,7 @@
 <script src="build/browser.min.js"></script>
 <script src="build/jquery.min.js"></script>
 <script src="build/ajaxPostReact.js"></script>
+<script src="build/textToLink.js"></script>
 </head>
 <body>
 <div id="container"></div>
@@ -44,6 +45,10 @@
         }
     });
     var  WallUpdates=React.createClass({
+        textToLinkHTML: function(content){
+            var finalContent=textToLink(content);
+            return {__html: finalContent}
+        },
         render:function () {
             var updatesEach=this.props.data.map(function (update, index) {
                         console.log(update);
@@ -52,7 +57,7 @@
                            <div className="feedText">
                                <b>{update.name}</b>
                                <a href="#" className="feedDelete">X</a>
-                               {update.user_update}
+                               <span dangerouslySetInnerHTML={this.textToLinkHTML(update.user_update)}  />
                            </div>
                             //coment block
                        </div>)
