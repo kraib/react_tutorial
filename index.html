@@ -19,10 +19,25 @@
         getInitialState:function () {
             return{'user_update':''}
         },
+        updateChange:function (e) {
+            this.setState({'user_update':e.target.value});
+        },
+        updateSubmit:function (e) {
+          e.preventDefault();
+          var user_update=this.state.user_update.trim();
+          if(!user_update)
+          {
+              return;
+          }
+          else {
+              console.log("sending update..");
+              this.setState({'user_update':''});
+          }
+        },
         render:function () {
             return(
             <form>
-                <textarea ref="updateInput" value={this.state.user_update}></textarea>
+                <textarea ref="updateInput" value={this.state.user_update} onChange={this.updateChange}></textarea>
                 <input type="submit" value="Post" id="WallPost"/>
             </form>
             );
