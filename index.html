@@ -13,6 +13,31 @@
 </body>
 <script type="text/babel">
     //React code...
+    var WallForm=React.createClass({
+        render:function () {
+            <form>
+                <textarea></textarea>
+                <input type="submit" value="Post" id="WallPost"/>
+            </form>
+        }
+    });
+    var  WallUpdates=React.createClass({
+        render:function () {
+            <div id="wallFeed">
+                //Wall Feed
+            </div>
+        }
+    })
+    var WallFeed=React.createClass({
+       render:function () {
+           return(
+                   <div>
+                   <WallForm/>
+                   <WallUpdates/>
+                   </div>
+           )
+       }
+    });
     var WallContainer = React.createClass({
         render : function () {
             return(
