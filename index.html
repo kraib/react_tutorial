@@ -7,6 +7,8 @@
 <script src="build/react.min.js"></script>
 <script src="build/react-dom.min.js"></script>
 <script src="build/browser.min.js"></script>
+<script src="build/jquery.min.js"></script>
+<script src="build/ajaxPostReact.js"></script>
 </head>
 <body>
 <div id="container"></div>
@@ -14,26 +16,54 @@
 <script type="text/babel">
     //React code...
     var WallForm=React.createClass({
+        getInitialState:function () {
+            return{'user_update':''}
+        },
         render:function () {
             <form>
-                <textarea></textarea>
+                <textarea ref="updateInput" value={this.state.user_update}></textarea>
                 <input type="submit" value="Post" id="WallPost"/>
             </form>
         }
     });
     var  WallUpdates=React.createClass({
         render:function () {
+            var updatesEach=this.props.data.map(function (update, index) {
+                       <div className="feedBody" key={update.created}>
+                           <img src={update.profile_pic} className="feedImg"/>
+                           <div className="feedText">
+                               <b>{updates.name}</b>
+                               <a href="#" className="feedDelete">X</a>
+                               {update.user_update}
+                           </div>
+                            //coment block
+                       </div>
+                    });
             <div id="wallFeed">
-                //Wall Feed
+                {updatesEach}
             </div>
         }
     })
     var WallFeed=React.createClass({
+        getInitialState:function () {
+          return {data:[]}
+        },
+        updateFromServer:function () {
+          var dataPost='';
+          var reactThis=this;
+          ajaxPostReact('newsFeed.json',dataPost,reactThis,function (data) {
+              reactThis.setState({data:data.updates})
+          })
+
+        },
+        componentDidMount:function () {
+          this.updateFromServer()
+        },
        render:function () {
            return(
                    <div>
                    <WallForm/>
-                   <WallUpdates/>
+                   <WallUpdates data={this.state.data}/>
                    </div>
            )
        }
