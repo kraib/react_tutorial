@@ -20,28 +20,33 @@
             return{'user_update':''}
         },
         render:function () {
+            return(
             <form>
                 <textarea ref="updateInput" value={this.state.user_update}></textarea>
                 <input type="submit" value="Post" id="WallPost"/>
             </form>
+            );
         }
     });
     var  WallUpdates=React.createClass({
         render:function () {
             var updatesEach=this.props.data.map(function (update, index) {
-                       <div className="feedBody" key={update.created}>
+                        console.log(update);
+                       return(<div className="feedBody" key={update.created}>
                            <img src={update.profile_pic} className="feedImg"/>
                            <div className="feedText">
-                               <b>{updates.name}</b>
+                               <b>{update.name}</b>
                                <a href="#" className="feedDelete">X</a>
                                {update.user_update}
                            </div>
                             //coment block
-                       </div>
-                    });
+                       </div>)
+                    },this);
+            return(
             <div id="wallFeed">
                 {updatesEach}
             </div>
+            )
         }
     })
     var WallFeed=React.createClass({
@@ -82,7 +87,10 @@
 
     });
     ReactDOM.render(
-            <WallContainer>,document.getElementById('container')
+            <WallContainer/>,
+            document.getElementById('container')
     );
+
+
 </script>
 </html>
