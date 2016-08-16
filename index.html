@@ -11,7 +11,23 @@
 <body>
 <div id="container"></div>
 </body>
-<script>
+<script type="text/babel">
     //React code...
+    var WallContainer = React.createClass({
+        render : function () {
+            return(
+                    <div id="wallContainer">
+                        <h1>Social Network Test</h1>
+                        <WallFeed/>
+
+                        </div>
+            )
+
+        }
+
+    });
+    ReactDOM.render(
+            <WallContainer>,document.getElementById('container')
+    );
 </script>
 </html>
