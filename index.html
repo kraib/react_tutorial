@@ -30,13 +30,13 @@
               return;
           }
           else {
-              console.log("sending update..");
+              this.props.onUpdateSubmit({ user_update: user_update});
               this.setState({'user_update':''});
           }
         },
         render:function () {
             return(
-            <form>
+            <form onSubmit={this.updateSubmit}>
                 <textarea ref="updateInput" value={this.state.user_update} onChange={this.updateChange}></textarea>
                 <input type="submit" value="Post" id="WallPost"/>
             </form>
@@ -68,6 +68,17 @@
         getInitialState:function () {
           return {data:[]}
         },
+        updateAjaxSubmit:function (update) {
+        var reactThis=this;
+         ajaxPostReact('updateFeed.json',update,reactThis,function (data) {
+             var updates=reactThis.state.data;
+
+             data.updates[0].user_update=update.user_update;
+
+             var newupdates=[data.updates[0]].concat(updates)
+             reactThis.setState({data:newupdates});
+         })
+        },
         updateFromServer:function () {
           var dataPost='';
           var reactThis=this;
@@ -82,7 +93,7 @@
        render:function () {
            return(
                    <div>
-                   <WallForm/>
+                   <WallForm onUpdateSubmit={this.updateAjaxSubmit}/>
                    <WallUpdates data={this.state.data}/>
                    </div>
            )
