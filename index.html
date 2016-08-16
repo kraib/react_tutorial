@@ -51,12 +51,14 @@
         },
         render:function () {
             var updatesEach=this.props.data.map(function (update, index) {
-                        console.log(update);
+
+
                        return(<div className="feedBody" key={update.created}>
                            <img src={update.profile_pic} className="feedImg"/>
                            <div className="feedText">
                                <b>{update.name}</b>
-                               <a href="#" className="feedDelete">X</a>
+                               <a href="#" className="feedDelete" value={index} data={update.update_id}
+                                  onClick={this.props.deleteUpdate} >X</a>
                                <span dangerouslySetInnerHTML={this.textToLinkHTML(update.user_update)}  />
                            </div>
                             //coment block
@@ -72,6 +74,17 @@
     var WallFeed=React.createClass({
         getInitialState:function () {
           return {data:[]}
+        },
+        deleteUpdate: function(e)
+        {
+            var updateIndex=e.target.getAttribute('value');
+            var update_id=e.target.getAttribute('data');
+            var data='updateID='+update_id;
+            var reactThis=this;
+            reactThis.state.data.splice(updateIndex,1);
+            reactThis.setState({data: reactThis.state.data});
+
+
         },
         updateAjaxSubmit:function (update) {
         var reactThis=this;
@@ -99,7 +112,7 @@
            return(
                    <div>
                    <WallForm onUpdateSubmit={this.updateAjaxSubmit}/>
-                   <WallUpdates data={this.state.data}/>
+                   <WallUpdates data={this.state.data} deleteUpdate={this.deleteUpdate}/>
                    </div>
            )
        }

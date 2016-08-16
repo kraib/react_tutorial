@@ -37,8 +37,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="59" column="106" selection-start-line="59" selection-start-column="106" selection-end-line="59" selection-end-column="106" />
+            <state relative-caret-position="540">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -276,7 +276,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471326741711</updated>
-      <workItem from="1471326743706" duration="5310000" />
+      <workItem from="1471326743706" duration="6232000" />
     </task>
     <task id="LOCAL-00001" summary="add css styles&#10;">
       <created>1471327043386</created>
@@ -348,11 +348,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471332743332</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add open link in new tab">
+      <created>1471332850683</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1471332850683</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5310000" />
+    <option name="totallyTimeSpent" value="6232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="980" extended-state="6" />
@@ -390,7 +397,8 @@
     <MESSAGE value="wallform" />
     <MESSAGE value="add wall update" />
     <MESSAGE value="test to link html" />
-    <option name="LAST_COMMIT_MESSAGE" value="test to link html" />
+    <MESSAGE value="add open link in new tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="add open link in new tab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -449,8 +457,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="59" column="106" selection-start-line="59" selection-start-column="106" selection-end-line="59" selection-end-column="106" />
+        <state relative-caret-position="540">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding />
         </state>
       </provider>
